@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const http = require('http');
 const mongoose = require('mongoose');
@@ -17,7 +18,7 @@ app.use(cors());
 app.use(express.json());
 
 // MongoDB Connection (we'll set up MongoDB Atlas next)
-mongoose.connect('mongodb+srv://user:Hamsa%402005@cluster0.w7vb4kj.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', {
+mongoose.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then(() => console.log('MongoDB Connected'))
